@@ -3,11 +3,52 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+  <body>
+    {% block naglowek%}
+    <div class="container">
+        <div class="row justify-content-md-center">     
+            <div class="col-md-12">
+                <h1 class="text-center">Witaj!</h1>
+            </div>
+        </div>      
+    </div> 
+    {% endblock %}   
+    <main class="container">
+        {% block tresc%}
+        <form action="login.php" method="POST">
+            <div class="row justify-content-md-center">     
+                <div class="col-md-12">
+                    <h1 class="text-center">Zaloguj się</h1>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-6 align-self-center">
+                    <h2>Nazwa użytkownika:</h2>             
+                </div>
+                <div class="col-md-6 align-self-center">
+                    <input type="text" placeholder="Nazwa użytkownika" required name="login">
+                </div>              
+            </div>
+            <div class="row align-items-center">        
+                <div class="col-md-6 align-self-center">
+                    <h2>Hasło:</h2> 
+                </div>
+                <div class="col-md-6 align-self-center">
+                    <input type="password" placeholder="Hasło" required name="haslo">
+                </div>
+            </div> 
+            <div class="row align-items-center">        
+                <div class="col-md-6 ml-md-auto">
+                    <input type="submit" class="btn btn-primary" value="Zaloguj">
+                </div>
+            </div>
+            {% endblock %} 
+        </form>
+    </main>
+  </body>
 </html>
