@@ -3,27 +3,27 @@ namespace AppBundle\Entity;
 
 class Task
 {
-    protected $task;
-    protected $dueDate;
+    protected $login;
+    protected $haslo;
 
-    public function getTask()
+    public function getLogin()
     {
-        return $this->task;
+        return $this->login;
     }
 
-    public function setTask($task)
+    public function setLogin($login)
     {
-        $this->task = $task;
+        $this->login = $login;
     }
 
-    public function getDueDate()
+    public function getHaslo()
     {
-        return $this->dueDate;
+        return $this->haslo;
     }
-
-    public function setDueDate($dueDate)
+    
+    public function setHaslo($haslo)
     {
-        $this->dueDate = $dueDate;
+        $this->haslo = $haslo;
     }
 }
 ?>
