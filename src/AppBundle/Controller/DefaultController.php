@@ -7,21 +7,21 @@ use AppBundle\Form\Type\LogowanieType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-//use Symfony\Component\Form\Extension\Core\Type\TextType;
-//use Symfony\Component\Form\Extension\Core\Type\DateType;
-//use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 class DefaultController extends Controller
 {
+    /**
+     * @Route("/admin")
+     */
+    public function adminAction()
+    {
+        return $this->render('default/admin.html.twig');
+    }
 
     /**
      * @Route("/", name="homepage")
      */
-   /* public function indexAction()
-    {
-        return $this->render('default/index.html.twig');
-    }
-	*/
     public function newAction(Request $request)
 	{
 	$loguj = new Task();
@@ -30,8 +30,23 @@ class DefaultController extends Controller
 	    ->add('haslo', 'password')
 	    ->add('Zaloguj', 'submit')
 	    ->getForm();
-        return $this->render('default/form.html.twig', array(
-            'form' => $form->createView(),
-        ));
+        return $this->render('default/form.html.twig',array(
+        'form' => $form->createView(),
+        ));    
+        }
+        
+    /**
+     * @Route("/ankieta", name="ankieta")
+     */    
+    public function ankietaAction()
+    {
+        //$login = $form->get('login')->getData();
+        //$osoba = new Osoba();
+        //$osoba = $this->getDoctrine()
+        //->getRepository('AppBundle:Osoba')
+        //->findOneByLogin($login);
+        //$osoba = $session->get('user', array());
+
+        return $this->render('default/ankieta.html.twig');    
     }    
 }
