@@ -1,3 +1,9 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+ankieta:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+admin:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

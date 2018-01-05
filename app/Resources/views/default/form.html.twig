@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block tresc %}
+    {{ form_start(form, {'action': path('ankieta'), 'method': 'POST'}) }}
+     {{ form_errors(form) }}
+        <div class="row justify-content-md-center">     
+            <div class="col-md-12">
+                <h1 class="text-center">Zaloguj się</h1>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-md-6 align-self-center">
+                <h2>Nazwa użytkownika:</h2>             
+            </div>
+            <div class="col-md-6 align-self-center">
+                {{ form_widget(form.login) }}
+            </div>              
+        </div>
+        <div class="row align-items-center">        
+            <div class="col-md-6 align-self-center">
+                <h2>Hasło:</h2> 
+            </div>
+            <div class="col-md-6 align-self-center">
+                {{ form_widget(form.haslo) }}
+            </div>
+        </div> 
+        <div class="row align-items-center">        
+            <div class="col-md-6 ml-md-auto">
+                {{ form_widget(form.Zaloguj,{'attr': {'class': 'btn btn-primary'}}) }}
+            </div>
+        </div>
+    {{ form_end(form) }}
+{% endblock %}
