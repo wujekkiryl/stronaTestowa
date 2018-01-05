@@ -3,10 +3,10 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Task;
-use AppBundle\Form\Type\LogowanieType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 class DefaultController extends Controller
@@ -22,18 +22,11 @@ class DefaultController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function newAction(Request $request)
+    public function newAction()
 	{
-	$loguj = new Task();
-	$form = $this->createFormBuilder($loguj)
-	    ->add('login', 'text')
-	    ->add('haslo', 'password')
-	    ->add('Zaloguj', 'submit')
-	    ->getForm();
-        return $this->render('default/form.html.twig',array(
-        'form' => $form->createView(),
-        ));    
-        }
+        return $this->redirect('/stronaTestowa/web/app_dev.php/login');    
+    }
+    
         
     /**
      * @Route("/ankieta", name="ankieta")

@@ -1,97 +1,139 @@
- <?
- namespace AppBundle\Entity;
+<?php
 
- use Doctrine\ORM\Mapping as ORM;
- use Symfony\Component\Security\Core\User\UserInterface;
+namespace AppBundle\Entity;
 
- /**
-  * @ORM\Table(name="app_users")
-  * )
-  */
- class User implements UserInterface, \Serializable
- {
-     /**
-      * @ORM\Column(type="integer")
-      * @ORM\Id
-      * @ORM\GeneratedValue(strategy="AUTO")
-      */
-     private $id;
+use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Entity\User as BaseUser;
 
-     /**
-      * @ORM\Column(type="string", length=25, unique=true)
-      */
-     private $username;
+/**
+ * Users
+ * @ORM\Entity
+ * @ORM\Table(name="osoby")
+ * 
+ */
+class User extends BaseUser
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
 
-     /**
-      * @ORM\Column(type="string", length=64)
-      */
-     private $password;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imie", type="string", length=64)
+     */
+    protected $imie;
 
-     /**
-      * @ORM\Column(type="string", length=60, unique=true)
-      */
-     private $email;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nazwisko", type="string", length=64)
+     */
+    protected $nazwisko;
 
-     /**
-      * @ORM\Column(name="is_active", type="boolean")
-      */
-     private $isActive;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="wiek", type="integer")
+     */
+    protected $wiek;
 
-     public function __construct()
-     {
-         $this->isActive = true;
-         // may not be needed, see section on salt below
-         // $this->salt = md5(uniqid(null, true));
-     }
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="<return>", type="string", length=255)
+     */
 
-     public function getUsername()
-     {
-         return $this->username;
-     }
 
-     public function getSalt()
-     {
-         // you *may* need a real salt depending on your encoder
-         // see section on salt below
-         return null;
-     }
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
-     public function getPassword()
-     {
-         return $this->password;
-     }
+    /**
+     * Set login
+     *
+     * @param string $login
+     * @return Users
+     */
 
-     public function getRoles()
-     {
-         return array('ROLE_USER');
-     }
+    /**
+     * Set imie
+     *
+     * @param string $imie
+     * @return Users
+     */
+    public function setImie($imie)
+    {
+        $this->imie = $imie;
 
-     public function eraseCredentials()
-     {
-     }
+        return $this;
+    }
 
-     /** @see \Serializable::serialize() */
-     public function serialize()
-     {
-         return serialize(array(
-             $this->id,
-             $this->username,
-             $this->password,
-             // see section on salt below
-             // $this->salt,
-         ));
-     }
+    /**
+     * Get imie
+     *
+     * @return string 
+     */
+    public function getImie()
+    {
+        return $this->imie;
+    }
 
-     /** @see \Serializable::unserialize() */
-     public function unserialize($serialized)
-     {
-         list (
-             $this->id,
-             $this->username,
-             $this->password,
-             // see section on salt below
-             // $this->salt
-         ) = unserialize($serialized);
-     }
- }
- ?>
+    /**
+     * Set nazwisko
+     *
+     * @param string $nazwisko
+     * @return Users
+     */
+    public function setNazwisko($nazwisko)
+    {
+        $this->nazwisko = $nazwisko;
+
+        return $this;
+    }
+
+    /**
+     * Get nazwisko
+     *
+     * @return string 
+     */
+    public function getNazwisko()
+    {
+        return $this->nazwisko;
+    }
+
+    /**
+     * Set wiek
+     *
+     * @param integer $wiek
+     * @return Users
+     */
+    public function setWiek($wiek)
+    {
+        $this->wiek = $wiek;
+
+        return $this;
+    }
+
+    /**
+     * Get wiek
+     *
+     * @return integer 
+     */
+    public function getWiek()
+    {
+        return $this->wiek;
+    }
+
+}
