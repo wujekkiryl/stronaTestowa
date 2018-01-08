@@ -47,7 +47,7 @@ class DefaultController extends Controller
     }
 
         /**
-        * @Route("/nazwisko")
+        * @Route("/nazwisko") name="nazwisko"
         */
     public function nazwiskoAction()
     {
@@ -72,7 +72,7 @@ class DefaultController extends Controller
      */
     public function newAction()
 	{
-        return $this->redirect('/stronaTestowa/web/app_dev.php/login');    
+        return $this->redirectToRoute('fos_user_security_login');    
     }
 
     /**
@@ -92,7 +92,7 @@ class DefaultController extends Controller
         
 
         $userManager->updateUser($user);
-        return $this->redirect('/stronaTestowa/web/app_dev.php/nazwisko');   
+        return $this->redirectToRoute('nazwisko');   
     }
 
     /**
@@ -112,7 +112,7 @@ class DefaultController extends Controller
         
 
         $userManager->updateUser($user);
-        return $this->redirect('/stronaTestowa/web/app_dev.php/wiek'); 
+        return $this->redirectToRoute('wiek');
     }
 
     /**
@@ -132,7 +132,7 @@ class DefaultController extends Controller
         
 
         $userManager->updateUser($user);
-        return $this->render('default/ankieta.html.twig'); 
+        return $this->redirectToRoute('ankieta'); 
     }
         
     /**
@@ -140,12 +140,6 @@ class DefaultController extends Controller
      */    
     public function ankietaAction()
     {
-        //$login = $form->get('login')->getData();
-        //$osoba = new Osoba();
-        //$osoba = $this->getDoctrine()
-        //->getRepository('AppBundle:Osoba')
-        //->findOneByLogin($login);
-        //$osoba = $session->get('user', array());
 
         return $this->render('default/ankieta.html.twig');    
     }    

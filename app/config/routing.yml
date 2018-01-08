@@ -3,20 +3,20 @@ app:
     type:     annotation
 
 ankieta:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+    path:   /ankieta
+    defaults: { _controller: AppBundle:Default:ankieta } 
 
 imie:
-    resource: "@AppBundle/Controller/"
-    type:     annotation     
+    path:   /imie
+    defaults: { _controller: AppBundle:Default:imie }  
 
 nazwisko:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+    path:   /nazwisko
+    defaults: { _controller: AppBundle:Default:nazwisko }
 
 wiek:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+    path:   /wiek
+    defaults: { _controller: AppBundle:Default:wiek }
 
 dodajimie:
     resource: "@AppBundle/Controller/"
@@ -54,5 +54,5 @@ fos_user_change_password:
     prefix: /profile
 fos_user_security_login:
     defaults: { _controller: FOSUserBundle:Security:login }
-    pattern: /login
+    path: /login
 
