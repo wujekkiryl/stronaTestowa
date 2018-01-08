@@ -138,6 +138,13 @@ class ComposerStaticInit48e682362fa3fda17345e47763456131
                 0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
             ),
         ),
+        'F' => 
+        array (
+            'FOS\\UserBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
+            ),
+        ),
         'D' => 
         array (
             'Doctrine\\ORM\\' => 

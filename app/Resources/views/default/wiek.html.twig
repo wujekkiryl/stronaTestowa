@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+Ankieta
+{% endblock %}
+{% block witaj %}
+    {{ include('default/zalogowano.html.twig')}}
+{% endblock %}
+{% block tresc %}
+<div class="container">
+	{{ form_start(form, {'method': 'post', 'action': path('dodajwiek'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+		<div class="row justify-content-md-center">  	
+			<div class="col-md-6">
+				<h2>Podaj Wiek</h2> 
+			</div>
+			<div class="col-md-6 align-self-center">
+			
+				{{ form_row(form.wiek) }}
+			
+			</div>
+		</div>
+		<div class="row align-items-center">	 	
+			<div class="col-md-6 ml-md-auto">
+			<input type="submit" id="_submit" name="_submit" class="btn btn-primary" value="Dalej" />
+		</div>
+	{{ form_end(form) }}
+</div>
+{% endblock %}

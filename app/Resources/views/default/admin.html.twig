@@ -5,3 +5,17 @@ ADMIN
 {% block witaj %}
 	Witaj Admin
 {% endblock %}
+{% block tresc %}
+      <form action="administrator.php" method="POST" id="sort">
+        <div class="row align-items-center">
+          <div class="col-sm-auto">
+            Sortuj:
+            {{ form_widget(form.sortowanie, { 'separator': '' }) }}
+          </div>
+          </div>
+          <div class="col-sm-auto">
+            <input type="submit" class="btn btn-primary" value="Sortuj">
+          </div>
+        </div>
+      </form>
+{% endblock %}
