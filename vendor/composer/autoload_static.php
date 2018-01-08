@@ -32,6 +32,10 @@ class ComposerStaticInit48e682362fa3fda17345e47763456131
         array (
             'Monolog\\' => 8,
         ),
+        'K' => 
+        array (
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
+        ),
         'D' => 
         array (
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
@@ -91,6 +95,10 @@ class ComposerStaticInit48e682362fa3fda17345e47763456131
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Knp\\Bundle\\PaginatorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
+        ),
         'Doctrine\\Bundle\\DoctrineBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-bundle',
@@ -129,6 +137,13 @@ class ComposerStaticInit48e682362fa3fda17345e47763456131
             'Psr\\Log\\' => 
             array (
                 0 => __DIR__ . '/..' . '/psr/log',
+            ),
+        ),
+        'K' => 
+        array (
+            'Knp\\Component' => 
+            array (
+                0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
             ),
         ),
         'I' => 
