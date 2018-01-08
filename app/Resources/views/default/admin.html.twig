@@ -6,16 +6,30 @@ ADMIN
 	Witaj Admin
 {% endblock %}
 {% block tresc %}
-      <form action="administrator.php" method="POST" id="sort">
-        <div class="row align-items-center">
-          <div class="col-sm-auto">
-            Sortuj:
-            {{ form_widget(form.sortowanie, { 'separator': '' }) }}
-          </div>
-          </div>
-          <div class="col-sm-auto">
-            <input type="submit" class="btn btn-primary" value="Sortuj">
-          </div>
-        </div>
-      </form>
+  {# total items count #}
+  <table>
+  <tr>
+  {# sorting of properties based on query components #}
+      <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
+      <th>{{ knp_pagination_sortable(pagination, 'Login', 'a.username') }}</th>
+      <th{% if pagination.isSorted('a.imie') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Imie', 'a.imie') }}</th>
+      <th>{{ knp_pagination_sortable(pagination, 'Nazwisko', 'a.nazwisko') }}</th>
+      <th>{{ knp_pagination_sortable(pagination, 'Wiek', 'a.wiek') }}</th>
+  </tr>
+
+  {# table body #}
+  {% for article in pagination %}
+  <tr {% if loop.index is odd %}class="color"{% endif %}>
+      <td>{{ article.id }}</td>
+      <td>{{ article.username }}</td>
+      <td>{{ article.imie }}</td>
+      <td>{{ article.nazwisko }}</td>
+      <td>{{ article.wiek }}</td>
+  </tr>
+  {% endfor %}
+  </table>
+  {# display navigation #}
+  <div class="navigation">
+      {{ knp_pagination_render(pagination) }}
+  </div>
 {% endblock %}

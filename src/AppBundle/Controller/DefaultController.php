@@ -5,7 +5,6 @@ namespace AppBundle\Controller;
 use AppBundle\form\Type\ImieType;
 use AppBundle\form\Type\NazwiskoType;
 use AppBundle\form\Type\WiekType;
-use AppBundle\form\Type\wyborType;
 use FOS\UserBundle\Entity\UserManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,12 +20,22 @@ class DefaultController extends Controller
     /**
      * @Route("/admin")
      */
-    public function adminAction()
+    public function adminAction(Request $request)
     {
-        $form = $this->createForm(new wyborType());
-        return $this->render('default/admin.html.twig',array('form' => $form->createView()));
+        $em    = $this->getDoctrine()->getManager();
+        $dql   = "SELECT a FROM AppBundle:User a";
+        $query = $em->createQuery($dql);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+    );
+        return $this->render('default/admin.html.twig', array('pagination' => $pagination));
     }
 
+  
     /**
     * @Route("/imie")
     */
