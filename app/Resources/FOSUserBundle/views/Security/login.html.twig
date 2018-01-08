@@ -4,11 +4,6 @@
 {% if error %}
     <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
 {% endif %}
-<div class="row justify-content-md-center">     
-    <div class="col-md-12">
-        <h1 class="text-center">Zaloguj się</h1>
-    </div>
-</div>
 <form action="{{ path("fos_user_security_check") }}" method="post">
 <div class="row align-items-center">
     <div class="col-md-6 align-self-center">

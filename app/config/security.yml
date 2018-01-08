@@ -26,3 +26,9 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/ankieta, role: ROLE_USER }
+        - { path: ^/imie, role: ROLE_USER }
+        - { path: ^/nazwisko, role: ROLE_USER }
+        - { path: ^/wiek, role: ROLE_USER }
+        - { path: ^/dodajimie, role: ROLE_USER }
+        - { path: ^/dodajnazwisko, role: ROLE_USER }
+        - { path: ^/dodajwiek, role: ROLE_USER }

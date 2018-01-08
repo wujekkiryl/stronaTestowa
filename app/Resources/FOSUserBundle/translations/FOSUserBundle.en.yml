@@ -1,0 +1,4 @@
+layout:
+    logout: Wyloguj
+    login: Zaloguj się
+    logged_in_as: Zalogowano jako %username%

@@ -1,12 +1,39 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
 ankieta:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+imie:
+    resource: "@AppBundle/Controller/"
+    type:     annotation     
+
+nazwisko:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+wiek:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+dodajimie:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+dodajnazwisko:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+dodajwiek:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
 admin:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
